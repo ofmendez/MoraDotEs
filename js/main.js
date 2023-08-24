@@ -65,6 +65,7 @@ const Register = (form) => {
 	createUserData(form.elements["idEmail"].value)
 		.then((res) => {
 			console.log(res);
+			form.reset();
 		})
 		.catch((e) => {
 			if (e === 473) alert("Gracias! Tu correo ya está registrado");
