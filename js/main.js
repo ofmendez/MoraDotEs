@@ -38,6 +38,9 @@ function createUserData(_email) {
 		fetch(endpoint, {
 			method: "POST",
 			body: params,
+			headers: {
+				"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+			},
 		})
 			.then((res) => {
 				if (res.ok) {
