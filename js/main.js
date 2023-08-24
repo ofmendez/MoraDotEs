@@ -31,7 +31,7 @@ function b64DecodeUnicode(str) {
 }
 function createUserData(_email) {
 	return new Promise((resolve, reject) => {
-		let params = JSON.stringify({ email: _email });
+		let params = JSON.stringify( { email: _email } );
 		let endpoint = b64DecodeUnicode(ofURLof) + "registers2";
 		fetch(endpoint, {
 			method: "POST",
@@ -44,7 +44,7 @@ function createUserData(_email) {
 				if (res.ok) {
 					resolve("writted");
 				} else {
-					reject("error");
+					reject(res.status));
 				}
 			})
 			.catch((e) => {
