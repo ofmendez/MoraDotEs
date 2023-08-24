@@ -44,7 +44,7 @@ function createUserData(_email) {
 				if (res.ok) {
 					resolve("writted");
 				} else {
-					reject(res);
+					reject(res.status);
 				}
 			})
 			.catch((e) => {
@@ -67,7 +67,8 @@ const Register = (form) => {
 			console.log(res);
 		})
 		.catch((e) => {
-			alert("Ha ocurrido un error, intente nuevamente.");
+			if (e === 473) alert("Gracias! Tu correo ya está registrado");
+			else alert("Ha ocurrido un error, intenta más tarde");
 			console.log("Error register: " + e);
 		})
 		.finally(() => {
