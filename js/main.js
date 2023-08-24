@@ -44,7 +44,7 @@ function createUserData(_email) {
 				if (res.ok) {
 					resolve("writted");
 				} else {
-					reject(res.status);
+					reject(res);
 				}
 			})
 			.catch((e) => {
