@@ -214,6 +214,18 @@
 	}
 }
 
+.RetroalimentacionForma {
+	font-family: "Barlow Condensed", sans-serif;
+   font-size: 16px;
+   font-weight: 800;
+   text-align: center;
+   margin: 0 auto;
+   color: #39B54A;
+}
+
 .avoidEvents {
 	pointer-events: none;
 }
+[nodisplay] { 
+	display: none; 
+} 

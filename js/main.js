@@ -66,6 +66,7 @@ const Register = (form) => {
 		.then((res) => {
 			console.log(res);
 			form.reset();
+			document.getElementById('idThanks').setAttribute('nodisplay', false);  
 		})
 		.catch((e) => {
 			if (e === 473) alert("Gracias! Tu correo ya está registrado");
