@@ -1,24 +1,6 @@
 const ofURLof =
 	"aHR0cHM6Ly9mcmdreWVicWpkYXhyYnJ3a3hob3BsNmVlaTBld21jeS5sYW1iZGEtdXJsLnVzLWVhc3QtMS5vbi5hd3Mv";
 
-const validateEmail = (email) => {
-	return String(email)
-		.toLowerCase()
-		.match(
-			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-		);
-};
-function b64EncodeUnicode(str) {
-	return btoa(
-		encodeURIComponent(str).replace(
-			/%([0-9A-F]{2})/g,
-			function toSolidBytes(match, p1) {
-				return String.fromCharCode("0x" + p1);
-			}
-		)
-	);
-}
-
 function b64DecodeUnicode(str) {
 	return decodeURIComponent(
 		atob(str)
@@ -29,6 +11,7 @@ function b64DecodeUnicode(str) {
 			.join("")
 	);
 }
+
 function createUserData(_email) {
 	return new Promise((resolve, reject) => {
 		let params = JSON.stringify({ email: _email });
@@ -41,11 +24,9 @@ function createUserData(_email) {
 			},
 		})
 			.then((res) => {
-				if (res.ok) {
-					resolve("writted");
-				} else {
-					reject(res.status);
-				}
+				if (!res.ok) reject(res.status);
+				resolve(res);
+				return true;
 			})
 			.catch((e) => {
 				reject("error: " + e);
@@ -55,8 +36,9 @@ function createUserData(_email) {
 
 window.TryLogin = (form) => {
 	document.body.style.cursor = "wait";
-	document.getElementById("idSubmit").disabled = true;
+	document.getElementById("idEmail").disabled = true;
 	document.getElementById("idSubmit").classList.add("avoidEvents");
+	document.getElementById("idThanks").setAttribute("nodisplay", "true");
 	Register(form);
 	return false;
 };
@@ -64,18 +46,17 @@ window.TryLogin = (form) => {
 const Register = (form) => {
 	createUserData(form.elements["idEmail"].value)
 		.then((res) => {
-			console.log(res);
 			form.reset();
-			document.getElementById('idThanks').removeAttribute('nodisplay');  
+			if (res.status === 273) alert("Gracias! Tu correo ya está registrado");
+			else document.getElementById("idThanks").removeAttribute("nodisplay");
 		})
 		.catch((e) => {
-			if (e === 473) alert("Gracias! Tu correo ya está registrado");
-			else alert("Ha ocurrido un error, intenta más tarde");
+			alert("Ha ocurrido un error, intenta más tarde");
 			console.log("Error register: " + e);
 		})
 		.finally(() => {
 			document.body.style.cursor = "default";
-			document.getElementById("idSubmit").disabled = false;
+			document.getElementById("idEmail").disabled = false;
 			document.getElementById("idSubmit").classList.remove("avoidEvents");
 		});
 };

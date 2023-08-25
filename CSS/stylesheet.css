@@ -50,6 +50,7 @@
 	}
 }
 .InputForma {
+	padding-left: 10px;
 	border: 2px solid #fff !important;
 	background-color: transparent;
 	font-weight: 700;
@@ -59,7 +60,7 @@
 	padding-bottom: 6px;
 	font-size: 20px;
 	animation: fadeInAnimation 2s ease-in-out 1;
-	width: 99.3%;
+	width: 97%;
 }
 
 .InputForma:focus {
@@ -216,16 +217,17 @@
 
 .RetroalimentacionForma {
 	font-family: "Barlow Condensed", sans-serif;
-   font-size: 16px;
-   font-weight: 800;
-   text-align: center;
-   margin: 0 auto;
-   color: #39B54A;
+	font-size: 16px;
+	font-weight: 800;
+	text-align: center;
+	margin: 0 auto;
+	color: #39b54a;
+	padding-top: 10px;
 }
 
 .avoidEvents {
 	pointer-events: none;
 }
-[nodisplay] { 
-	display: none; 
-} 
+[nodisplay] {
+	display: none;
+}
