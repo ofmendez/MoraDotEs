@@ -1,0 +1,252 @@
+ 
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+ 
+ * {
+     margin: 0;
+     padding: 0;
+     -webkit-tap-highlight-color: transparent;
+}
+
+ p{
+    font-family: "Oswald", sans-serif;
+     font-size:18px;
+     
+}
+@media (max-width: 768px){
+    p{
+        font-size:28px;
+   }
+}
+ .ImageFlexbox{
+     width:100%;
+}
+ .GeneralContainer{
+     background: #0d0b0c;
+}
+
+.VideoContainer{
+    text-align: center;
+}
+
+    iframe {
+        width: 60vw;
+        height: 33vw;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 768px){
+        iframe {
+            width: 90vw;
+            height: 50.6vw;
+        }
+    }
+
+ .BannerTour{
+     width:50%;
+     padding-top:5%;
+     padding-bottom:5%;
+     margin: 0 auto;
+     display: block;
+     max-width: 500px;
+}
+
+@media (max-width: 768px){
+    .BannerTour {
+        width:80%;
+        padding-top:10%;
+     padding-bottom:0%;
+    }
+}
+ .ContentContainer{
+     background-image: url("../Images/Fondo.jpg");
+     background-position: bottom center;
+     background-repeat: no-repeat;
+     background-size: 100% auto;
+     margin-top:-1px;
+}
+ .FirstRowContainer{
+     display: flex;
+     flex-direction: row;
+     padding:0 8%;
+     justify-content: center;
+     align-items: center;
+}
+ @media (max-width: 800px){
+     .FirstRowContainer{
+         flex-direction: column;
+    }
+}
+ .CamposFechasConciertos{
+     max-width: 960px; /*Ancho máximo contenedor fechas*/
+     width:80%; /*Ancho contenedor fechas*/
+     margin: 0 auto;
+     padding: 30px;
+}
+ .CamposFechasConciertos div{
+     display:flex;
+     flex-direction: row;
+     min-height: 60px; /*Altura fechas*/
+     align-items: center;
+}
+
+@media (max-width:768px){
+    .CamposFechasConciertos div{
+        flex-direction: column;
+        min-height: 2px;
+   }
+}
+ .FechaConcierto{
+     color:white;
+     display:flex;
+     text-align: right;
+     gap:2vw;
+     animation: fadeInAnimation 2s ease-in-out 1;
+     align-items: center;
+     justify-content: space-between;
+     
+}
+ @media (max-width:768px){
+     .FechaConcierto{
+         display: block;
+         text-align: center;
+         gap:1vw;
+         padding-top:10vw;
+         padding-bottom:10vw;
+    }
+}
+ .FechaFinalizada p{
+     color: white!important;
+     opacity:50%;
+}
+ .DiaMesConcierto{
+     font-size:20px;
+     color: white;
+     flex-basis: 14%; /*Ancho fecha mes día*/
+     font-weight: 700;
+     text-shadow: #fff -1px -1px 7px;
+}
+
+.BlurText{
+    color:white;
+    filter: blur(6px);
+
+}
+ .CiudadConcierto{
+     font-size:20px;
+     display: inline-block;
+     flex-basis: 27%; /*Ancho ciudad país*/
+     text-align:left;
+     text-shadow: #fff -1px -1px 7px;
+     
+}
+@media (max-width:768px){
+    .CiudadConcierto{
+        text-align: center;
+   }
+}
+ .LugarConcierto{
+     text-align: left;
+     flex-basis: 37%;/*Ancho lugar concierto*/
+     font-size: 20px;
+     font-family: "Oswald", sans-serif;
+     color:white;
+     text-shadow: #fff -1px -1px 7px;
+     
+}
+ @media (max-width:768px){
+     .LugarConcierto{
+         text-align: center;
+         padding:4px 25px 16px 25px;
+    }
+}
+.BotonConcierto{
+    flex-basis: 22%;/*Ancho botón*/
+}
+ .BotonConcierto button{
+     background-color: transparent;
+     border: 0 solid transparent;
+     transition: 0.3s;
+}
+ .BotonVenta button{
+     cursor: pointer;
+}
+
+.BotonSoldOut button{
+    width:80%;
+}
+
+@media (max-width:768px){
+
+    .BotonVenta button{
+        width:68%;
+   }
+
+    .BotonSoldOut button{
+        width:60%;
+   }
+
+   .BotonSoon button{
+    width:68%;
+}
+}
+ .BotonConcierto button:hover{
+     transform: translate(0, -4px);
+}
+ .BotonConcierto img{
+     width:100%;
+     display:block;
+}
+
+.FooterRimas img{
+    display:block;
+    margin:0 auto;
+    padding-top:10%;
+    width:16%;
+}
+
+@media (max-width:768px){
+    .FooterRimas img{
+        width: 40%;
+}
+}
+
+
+/*  ------ ANIMACIONES ----- */
+
+ @keyframes fadeInAnimation {
+     0% {
+         opacity: 0;
+         transform: translatey(20px);
+    }
+     100% {
+         opacity: 1;
+         transform: translatey(0px);
+    }
+}
+
+/*  ------ SCROLLBAR ----- */
+
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #222;
+ 
+
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #575656;
+    border-radius: 100px;
+
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #575656;
+  }
